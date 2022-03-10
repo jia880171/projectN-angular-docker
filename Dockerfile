@@ -7,19 +7,20 @@ RUN mkdir -p /app
 # Change directory so that our commands run inside this new directory
 WORKDIR /app
 
-# Get all the code needed to run the app
-COPY . /app/
+RUN npm install -g @angular/cli
 
 # Copy dependency definitions
-COPY package*.json /app/
+COPY package*.json .
 
 # Install dependecies
 RUN npm install
 
-RUN npm install -g @angular/cli
+# Get all the code needed to run the app
+COPY . /app/
+
 
 # Expose the port the app runs in
 EXPOSE 4200
 
-# Serve the app
+# # Serve the app
 CMD ["npm", "start"]

@@ -1,5 +1,5 @@
 {
-  "name": "angular",
+  "name": "projectN-angular-docker",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
