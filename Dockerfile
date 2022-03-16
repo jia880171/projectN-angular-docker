@@ -11,3 +11,4 @@ EXPOSE 4200
 
 # -d is a operator to test if the given directory exists or not.
 CMD [ -d "node_modules" ] && npm run start || npm ci && npm run start
+
