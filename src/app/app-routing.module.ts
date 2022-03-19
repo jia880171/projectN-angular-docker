@@ -1,4 +1,6 @@
-import { TestComponent } from './component/test/test.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { PhotoContainerComponent } from './component/photo-container/photo-container.component';
+import { SideBarComponent } from './component/side-bar/side-bar.component';
 import { PhotoLensComponent } from './component/photo-lens/photo-lens.component';
 import { ServersComponent } from './component/servers/servers.component';
 import { NgModule } from '@angular/core';
@@ -12,6 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'test',
+    component: SideBarComponent,
     children: [
       {
         path: 'servers',
@@ -20,7 +23,13 @@ const routes: Routes = [
       {
         path: 'photoLens',
         component: PhotoLensComponent,
-      },
+      },{
+        path: 'photoContainer',
+        component: PhotoContainerComponent,
+      },{
+        path: 'profile',
+        component: ProfileComponent,
+      }
     ],
   },
 ];
