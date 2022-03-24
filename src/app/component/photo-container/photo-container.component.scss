@@ -1,4 +1,11 @@
 .containerForPIXI {
-  background-color: red;
-  // border-style: dotted;
+  float: right;
+  width: 85vw;
+  height: 100vh;
+}
+
+.debug{
+  position: absolute;
+  top: 0;
+  z-index: 10;
 }

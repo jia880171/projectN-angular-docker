@@ -1,16 +1,14 @@
 .sideBar {
   position: absolute;
   z-index: 10;
-  width: 15%;
-  height: 100%;
-  background-color: white;
-  border-style: dotted;
+  width: 15vw;
+  height: 100vh;
 }
 .sideBarBody{
   float: right;
-
+  background-color: antiquewhite;
   padding-top: 30%;
-  padding-right: 5%;
+  padding-right: 10%;
 }
 
 .sideBar p {
@@ -18,7 +16,8 @@
   font-size: 12px;
 }
 
-.RouteContent {
-  float: right;
-  width: 85%;
-}
+// .RouteContent {
+//   float: right;
+//   width: 85vw;
+//   height: 100vh;
+// }

@@ -20,10 +20,14 @@ export class SideBarComponent implements OnInit {
   }
 
   goToPhotoContainer(): void {
-    this.router.navigate(['test/photoContainer']);
+    this.router.navigate(['test/photoContainer']).then(() => {
+      // window.location.reload();
+    });
   }
 
   goToProfile(): void {
-    this.router.navigate(['test/profile']);
+    this.router.navigate(['test/profile']).then(() => {
+      // window.location.reload();
+    });
   }
 }

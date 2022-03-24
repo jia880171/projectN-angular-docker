@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  HostListener,
+  OnChanges,
+} from '@angular/core';
 import * as PIXI from 'pixi.js';
 
 @Component({
@@ -6,12 +12,12 @@ import * as PIXI from 'pixi.js';
   templateUrl: './photo-container.component.html',
   styleUrls: ['./photo-container.component.scss'],
 })
-export class PhotoContainerComponent implements OnInit, AfterViewInit {
+export class PhotoContainerComponent
+  implements OnInit, AfterViewInit, OnChanges {
   containerForPIXI: HTMLElement | null | undefined;
-  width: number = 0;
-  height: number = 0;
-
   app: any;
+  backgroundcontainer = new PIXI.Container();
+
   widthForFrame: number = 250;
   heightForFrame: number = 300;
 
@@ -20,25 +26,51 @@ export class PhotoContainerComponent implements OnInit, AfterViewInit {
   contentFotMask: any;
   text: any;
 
-  b1: any;
-  b2: any;
+  indexForOnePageScrolling = 0;
+  pagesForOnePageScrolling: any[] = [];
 
-  rate: number = 1;
   constructor() {}
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {
-    this.loadImageAsBackground();
+  ngOnInit(): void {
+    this.loadImagesForBackgroundContainer();
+    this.mainContainerInit();
     this.setupWindow();
     this.setupMask();
     this.setupContentForMask();
     this.tickerForContent();
+  }
+  ngOnChanges(): void {}
 
-    this.video();
+  ngAfterViewInit(): void {
+    // this.video();
   }
 
-  private loadImageAsBackground(): void {
+  @HostListener('wheel', ['$event'])
+  wheelScroll($event: WheelEvent): void {
+    // $event.deltaY > 0: scroll down
+    if ($event.deltaY > 0) {
+      if (
+        this.indexForOnePageScrolling <
+        this.pagesForOnePageScrolling.length - 1
+      ) {
+        this.indexForOnePageScrolling++;
+      }
+    } else {
+      if (this.indexForOnePageScrolling > 0) {
+        this.indexForOnePageScrolling--;
+      }
+    }
+    const rate = window.innerHeight / 901;
+    this.pagesForOnePageScrolling[this.indexForOnePageScrolling].scale.set(
+      rate
+    );
+
+    this.backgroundcontainer.addChild(
+      this.pagesForOnePageScrolling[this.indexForOnePageScrolling]
+    );
+  }
+
+  private mainContainerInit(): void {
     this.containerForPIXI = document.getElementById('containerForPIXI');
     if (this.containerForPIXI) {
       this.app = new PIXI.Application({
@@ -46,19 +78,27 @@ export class PhotoContainerComponent implements OnInit, AfterViewInit {
         height: window.innerHeight,
       });
       this.containerForPIXI.appendChild(this.app.view);
-      this.b1 = PIXI.Sprite.from('../../../assets/monochrome.jpeg');
-      this.b1.scale.set(0.41);
-      this.app.stage.addChild(this.b1);
+
+      this.backgroundcontainer.addChild(
+        this.pagesForOnePageScrolling[this.indexForOnePageScrolling]
+      );
+
+      this.app.stage.addChild(this.backgroundcontainer);
     }
   }
+  private loadImagesForBackgroundContainer(): void {
+    const b1 = PIXI.Sprite.from('../../../assets/1.jpeg');
+    this.pagesForOnePageScrolling.push(b1);
+    const b2 = PIXI.Sprite.from('../../../assets/2.jpeg');
+    this.pagesForOnePageScrolling.push(b2);
+  }
 
-  private video(): void{
+  private video(): void {
     // const containerForProfile = new PIXI.Container();
     const profileFrame = PIXI.Sprite.from('../../../assets/profile.mp4');
     profileFrame.scale.set(0.1);
-    profileFrame.position.set(10,10);
+    profileFrame.position.set(10, 10);
     this.frame.addChild(profileFrame);
-
   }
 
   private setupWindow(): void {

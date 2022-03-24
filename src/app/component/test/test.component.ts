@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class TestComponent implements OnInit {
   constructor(private router: Router) {}
-  goToLens(): void {
-    this.router.navigate(['test/photoLens']);
-  }
+  // goToLens(): void {
+  //   this.router.navigate(['test/photoLens']);
+  // }
 
   ngOnInit(): void {}
 }
