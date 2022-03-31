@@ -1,0 +1,36 @@
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.panel {
+  // overflow: auto;
+  position: absolute;
+  width: 40vw;
+  margin-top: 20vh;
+  margin-left: 5vw;
+  margin-bottom: 5vw;
+  max-height: 70vh;
+
+  padding-top: 6vh;
+  padding-left: 5vw;
+  padding-bottom: 5vw;
+  background-color: rgb(204, 198, 198, 0.56);
+}
+
+.panelContent {
+  overflow: hidden;
+  max-width: 30vw;
+  max-height: 55vh;
+}
+.panelContent p {
+  margin-top: 3vh;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+img {
+  min-height: 100vh;
+  min-width: 85vw;
+  overflow: hidden;
+}

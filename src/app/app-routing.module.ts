@@ -1,3 +1,5 @@
+import { AnimationComponent } from './component/animation/animation.component';
+import { OnePageSrollComponent } from './component/one-page-sroll/one-page-sroll.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { PhotoContainerComponent } from './component/photo-container/photo-container.component';
 import { SideBarComponent } from './component/side-bar/side-bar.component';
@@ -32,6 +34,14 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+      },
+      {
+        path: 'onePageScroll',
+        component: OnePageSrollComponent,
+      },
+      {
+        path: 'animation',
+        component: AnimationComponent,
       },
     ],
   },

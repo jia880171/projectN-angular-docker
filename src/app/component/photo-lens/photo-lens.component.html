@@ -1,20 +1,21 @@
-<body class="routeBody">
+<body>
   <div class="background"></div>
 
-  <div id="container1" class="floatBasic container1" [style.background-position-x]="newCenterPositionX"
-    [style.background-position-y]="newCenterPositionY" [style.transform]="scaleString">
+  <div>
+    <div id="container1" class="floatBasic container1" [style.background-position-x]="newCenterPositionX"
+      [style.background-position-y]="newCenterPositionY" [style.transform]="scaleString">
+    </div>
+    <div class="floatBasic container2"></div>
+    <div class="locationData">
+      <h1>Home is far away</h1>
+      <p>CenterX: {{centerX}}, CenterY: {{centerY}}</p>
+      <p>(Relative to center) CursorX: {{cursorPositionX}}, CursorY: {{cursorPositionY}}</p>
+      <p>New CenterX: {{newCenterPositionX}}, new CenterY: {{newCenterPositionY}}</p>
+
+      <p>scale: {{scaleString}}</p>
+      <p>deltaY: {{deltaY}}</p>
+
+
+    </div>
   </div>
-  <div class="floatBasic container2"></div>
-  <div class="locationData">
-    <h1>Home is far away</h1>
-    <p>CenterX: {{centerX}}, CenterY: {{centerY}}</p>
-    <p>(Relative to center) CursorX: {{cursorPositionX}}, CursorY: {{cursorPositionY}}</p>
-    <p>New CenterX: {{newCenterPositionX}}, new CenterY: {{newCenterPositionY}}</p>
-
-    <p>scale: {{scaleString}}</p>
-    <p>deltaY: {{deltaY}}</p>
-
-
-  </div>
-
 </body>

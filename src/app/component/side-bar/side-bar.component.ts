@@ -30,4 +30,15 @@ export class SideBarComponent implements OnInit {
       // window.location.reload();
     });
   }
+
+  goToOnePageScroll(): void {
+    this.router.navigate(['test/onePageScroll']).then(() => {
+      // window.location.reload();
+    });
+  }
+  goToAnimation(): void {
+    this.router.navigate(['test/animation']).then(() => {
+      // window.location.reload();
+    });
+  }
 }
