@@ -3,7 +3,7 @@ import { OnePageSrollComponent } from './component/one-page-sroll/one-page-sroll
 import { FakeIDEComponent } from './component/fakeIDE/fakeIDE.component';
 import { PhotoContainerComponent } from './component/photo-container/photo-container.component';
 import { SideBarComponent } from './component/side-bar/side-bar.component';
-import { RootComponent } from './component/root/root.component';
+import { MainPageComponent } from './component/mainPage/mainPage.component';
 import { PhotoLensComponent } from './component/photo-lens/photo-lens.component';
 import { ServersComponent } from './component/servers/servers.component';
 import { NgModule } from '@angular/core';
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'root',
-    component: RootComponent,
+    component: MainPageComponent,
     children: [
       {
         path: '',

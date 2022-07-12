@@ -6,3 +6,12 @@
 //   max-width: 10vw;
 //   scale: 0.3;
 // }
+
+.my-custom-snackbar {
+  color: white;
+  position: absolute;
+  width: 100%;
+  left: 5vw;
+  bottom: 2vh;
+  background-color: red;
+}

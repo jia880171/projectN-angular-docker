@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './component/server/server.component';
@@ -12,7 +13,7 @@ import { ServersComponent } from './component/servers/servers.component';
 import { PhotoLensComponent } from './component/photo-lens/photo-lens.component';
 import { OnePageSrollComponent } from './component/one-page-sroll/one-page-sroll.component';
 import { PhotoContainerComponent } from './component/photo-container/photo-container.component';
-import { RootComponent } from './component/root/root.component';
+import { MainPageComponent } from './component/mainPage/mainPage.component';
 import { SideBarComponent } from './component/side-bar/side-bar.component';
 import { FakeIDEComponent } from './component/fakeIDE/fakeIDE.component';
 import { AnimationComponent } from './component/animation/animation.component';
@@ -31,7 +32,7 @@ import { CvComponent } from './component/cv/cv.component';
     ServerComponent,
     ServersComponent,
     PhotoLensComponent,
-    RootComponent,
+    MainPageComponent,
     SideBarComponent,
     PhotoContainerComponent,
     FakeIDEComponent,
@@ -53,7 +54,8 @@ import { CvComponent } from './component/cv/cv.component';
     MatFormFieldModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

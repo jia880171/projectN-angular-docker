@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-photo-lens',
   templateUrl: './photo-lens.component.html',
@@ -21,7 +21,11 @@ export class PhotoLensComponent implements OnInit, AfterViewInit {
 
   container1: any;
   coords: any;
-  constructor() {}
+  constructor(private snackBar: MatSnackBar) {
+    this.snackBar.open('scroll the mouse wheel to zoom the photo!', 'OK', {
+      panelClass: 'my-custom-snackbar',
+    });
+  }
 
   ngOnInit(): void {
     this.container1 = document.getElementById('container1');
