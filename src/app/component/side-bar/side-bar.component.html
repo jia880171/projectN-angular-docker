@@ -1,16 +1,24 @@
 <div class="sideBar">
   <div class="sideBarBody">
-    <p (click)="goToServer()">severs</p>
-    <p (click)="photoLens()">photoLens</p>
-    <p (click)="goToPhotoContainer()">photoContainer</p>
-    <p (click)="goToProfile()">profile</p>
-    <p (click)="goToOnePageScroll()">onePageScroll</p>
-    <p (click)="goToAnimation()">animation</p>
-
+    <!-- <p>
+      <a routerLink="photoContainer" routerLinkActive="router-link-active">photoContainer</a>
+    </p> -->
+    <p>
+      <a routerLink="photoLens" routerLinkActive="router-link-active">PhotoLens</a>
+    </p>
+    <p>
+      <a routerLink="fakeIDE" routerLinkActive="router-link-active">Fake IDE</a>
+    </p>
+    <p>
+      <a routerLink="onePageScroll" routerLinkActive="router-link-active">1PScroll</a>
+    </p>
+    <!-- <p>
+      <a routerLink="animation" routerLinkActive="router-link-active">Animation</a>
+    </p> -->
 
   </div>
-  <!-- <router-outlet></router-outlet> -->
-  <video src="../../../assets/profile.mp4" class="videoProfile" autoplay="true" loop></video>
+
+  <!-- <video src="../../../assets/profile.mp4" class="videoProfile" autoplay="true" loop></video> -->
 
 
 </div>

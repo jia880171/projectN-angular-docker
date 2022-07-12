@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { AnimationService } from './animation.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   state,
   style,
   trigger,
   transition,
   animate,
-  group,
   keyframes,
 } from '@angular/animations';
+import { PostModel } from './post.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-animation',
@@ -117,22 +119,48 @@ import {
     ]),
   ],
 })
-export class AnimationComponent implements OnInit {
+export class AnimationComponent implements OnInit, OnDestroy {
   state = 'normal';
   wildState = 'normal';
-  list = ['Milk', 'Sugar', 'Bread'];
+  list: PostModel[] = [];
+  error: string | null | undefined;
 
-  constructor() {}
+  errorSub: Subscription | undefined;
+  itemSub: Subscription | undefined;
+  removeItemSub: Subscription | undefined;
 
-  ngOnInit(): void {}
+  constructor(private animationService: AnimationService) {}
 
-  onAdd(item: any): void {
-    this.list.push(item);
+  ngOnInit(): void {
+    // this.errorSub = this.animationService.error.subscribe((errorMessage) => {
+    //   this.error = errorMessage;
+    // });
+    // this.itemSub = this.animationService.itemListenerSubject.subscribe(
+    //   (item) => {
+    //     this.list.push(new PostModel(item));
+    //   }
+    // );
+
+    this.getItems();
   }
-  onDelete(index: any): void {
-    console.warn(this.list);
-    this.list.splice(index, 1);
-    console.warn(this.list);
+
+  ngOnDestroy(): void {
+    this.errorSub?.unsubscribe();
+    this.itemSub?.unsubscribe();
+    this.removeItemSub?.unsubscribe();
+  }
+
+  getItems(): any {
+    this.animationService.onClickGetItems();
+  }
+  addItem(item: string): void {
+    this.animationService.addItem(item);
+  }
+
+  deleteItem(item: PostModel, i: number): void {
+    if (item.id) {
+      this.animationService.deleteItem(item);
+    }
   }
 
   onAnimate(): void {

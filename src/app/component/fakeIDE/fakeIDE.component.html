@@ -1,0 +1,131 @@
+<body class="containerForPIXI">
+
+  <h1 style="position: absolute;top: 3vh; color: black;">Online TypeScript IDE (FAKE)</h1>
+  <div class="wrapper">
+
+    <div class="loader" id="js-loader" *ngIf="loading">
+
+      <!-- <p class="loader__p" > initial online IDE</p> -->
+      <div class="groupP">
+        <p class="loader__p">Initializing</p>
+        <p class="loader__p">Online</p>
+        <p class="loader__p">IDE</p>
+      </div>
+
+      <div [@cubeRotation]="rotationStatus" (@cubeRotation.done)="onRotationDone($event)" class="loader__cube"
+        id="js-loader-cube"></div>
+
+      <div class="loader__line" id="js-loader-line"></div>
+
+    </div>
+
+    <!-- for input -->
+    <div class="content" *ngIf="!loading">
+      <div [@problemsSection] class="problems">
+        <!-- <p (click)="onChangeProblem('1')">-2 base</p> -->
+        <p (click)="onChangeProblem('2')">BackTracking</p>
+        <p (click)="onChangeProblem('3')">Check DOM elements</p>
+        <!-- <p (click)="onChangeProblem('4')">LPS</p> -->
+        <p (click)="onChangeProblem('5')">Recursive</p>
+
+        <!-- <p (click)="test()">Test</p> -->
+
+      </div>
+
+      <div [@codeSection] (@codeSection.done)="printLines()" class="IDE">
+        <pre>
+          <code style="color: greenyellow;">{{typingCodes}}</code>
+        </pre>
+      </div>
+
+      <div [@solutionPanelSlide]="statusForSolutionPanel[2]" class="visualPanel">
+        <table>
+          <ng-container *ngFor="let row of map; let r = index">
+            <tr>
+              <ng-container *ngFor="let column of row; let c = index">
+                <td [ngClass]="mapClass[r][c]" style="width: 5vh; height: 5vh;">
+                  <div class="central">
+                    <div class="divP">
+                      <p class="centralP">{{column}}</p>
+                    </div>
+                    <div class="divP">
+                      <p class="centralP">{{connectedMap[r][c]}}</p>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </table>
+
+        <div class="buttonGroup">
+          <button mat-stroked-button id="connectedGraphStartButton" (click)="startToConnect()">
+            start
+          </button>
+          <button mat-stroked-button class="buttonGroupButton" id="connectedGraphResetButton" (click)="resetConnect()">
+            resetConnect
+          </button>
+        </div>
+      </div>
+
+      <div [@solutionPanelSlide]="statusForSolutionPanel[3]" class="visualPanel">
+        <input matInput [formControl]="domFormControl">
+        <button (click)="startToCheckDOMElements()">
+          start
+        </button>
+        <button (click)="resetDOMElements()">
+          reset
+        </button>
+        <div>
+
+          <div style="margin-top: 10%;">
+            <table>
+              <tr>
+                <ng-container *ngFor="let element of elements;let i = index">
+                  <td [ngClass]="getClass(i)" style="width: 3vw; height: 2vw;color: black;border: 1px solid black;">
+                    {{element}}</td>
+                </ng-container>
+              </tr>
+            </table>
+          </div>
+
+          <div class="domStack">
+            <div class="inlineBlock">
+              <table>
+                <ng-container *ngFor="let element of elements; let i = index">
+                  <tr>
+                    <td [ngClass]="elementsClass[elements.length - 1 - i]"> {{elementsStack[elements.length - 1 - i]}}
+                    </td>
+                  </tr>
+                </ng-container>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div [@solutionPanelSlide]="statusForSolutionPanel[5]" class="visualPanel">
+
+        <button (click)="startRecursive()">
+          start Recursive
+        </button>
+        <button (click)="resetGlobal()">
+          reset
+        </button>
+        <div>
+
+          <div class="domStack">
+            <div class="inlineBlock">
+              <p style="color: black;">{{recursiveTest}}</p>
+              <p style="color: black;">{{waitingStatus}}</p>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>

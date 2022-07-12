@@ -1,0 +1,189 @@
+.containerForPIXI {
+  float: right;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: "Noto Sans HK", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  background: #f4f4f4;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  // margin-left: 5vw;
+  width: 100vw;
+  height: 100%;
+  // border-radius: 20px;
+  border: 4px solid rgba(57, 54, 56, 1);
+  background: #000;
+  box-shadow: -5px 5px 20px 10px rgba(0, 0, 0, 0.3);
+}
+
+.content {
+  height: 90%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.problems {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 5vw;
+  width: 10%;
+  height: 80%;
+}
+
+.IDE {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  margin-left: 5px;
+  width: 60vw;
+  height: 80%;
+  border-radius: 20px;
+  border: 4px solid rgba(57, 54, 56, 1);
+  background: rgba(153, 150, 150, 0.3);
+  box-shadow: -5px 5px 20px 10px rgba(0, 0, 0, 0.3);
+}
+
+.visualPanel {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: whitesmoke;
+  padding: 3%;
+  top: 5vh;
+  right: 0vw;
+  position: absolute;
+  float: right;
+  width: 30vw;
+  height: 80vh;
+}
+
+.buttonGroup {
+  margin-top: 5vh;
+}
+
+.buttonGroupButton {
+  margin-left: 1vw;
+}
+
+.central {
+  margin: auto;
+}
+
+.divP{
+  height: 2vh;
+}
+
+.centralP {
+  text-align: center;
+  line-height: 2vh;
+}
+
+.domStack {
+  margin-top: 10%;
+}
+.inlineBlock {
+  margin-left: 5%;
+  display: inline-block;
+}
+
+.hole {
+  background-color: gray;
+}
+
+.solid {
+  background-color: wheat;
+}
+
+.touched {
+  background-color: red;
+}
+
+.current {
+  border-radius: 1;
+  border-color: goldenrod;
+}
+
+.stackDefault {
+  width: 3vw;
+  height: 2vw;
+  color: white;
+  background-color: aqua;
+  border: 1px solid black;
+}
+.stackPushed {
+  width: 3vw;
+  height: 2vw;
+  color: black;
+  border: 1px solid black;
+}
+.currentDOM {
+  background-color: red;
+}
+
+.notCurrentDOM {
+  background-color: white;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.groupP {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+pre {
+  margin-left: 3vw;
+}
+.loader {
+  position: absolute;
+  z-index: 2;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  // background-color: white;
+
+  &__p {
+    // background-color: rebeccapurple;
+    text-align: center;
+    width: 10vw;
+  }
+
+  &__cube {
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+    border: 1px solid #ffffff;
+  }
+
+  // &__line {
+  //   position: absolute;
+  //   top: 0;
+  //   height: 100px;
+  //   left: 50%;
+  //   transform: translateX(calc(-50% + 1px));
+  //   width: 1px;
+  //   background: #ffffff;
+  // }
+}

@@ -60,10 +60,8 @@ export class PhotoContainerComponent
         this.indexForOnePageScrolling--;
       }
     }
-    const rate = window.innerHeight / 901;
-    this.pagesForOnePageScrolling[this.indexForOnePageScrolling].scale.set(
-      rate
-    );
+    this.pagesForOnePageScrolling[this.indexForOnePageScrolling].width =
+      window.outerWidth;
 
     this.backgroundcontainer.addChild(
       this.pagesForOnePageScrolling[this.indexForOnePageScrolling]
@@ -79,6 +77,8 @@ export class PhotoContainerComponent
       });
       this.containerForPIXI.appendChild(this.app.view);
 
+      this.pagesForOnePageScrolling[this.indexForOnePageScrolling].width =
+        window.outerWidth;
       this.backgroundcontainer.addChild(
         this.pagesForOnePageScrolling[this.indexForOnePageScrolling]
       );

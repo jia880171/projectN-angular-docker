@@ -1,9 +1,9 @@
 import { AnimationComponent } from './component/animation/animation.component';
 import { OnePageSrollComponent } from './component/one-page-sroll/one-page-sroll.component';
-import { ProfileComponent } from './component/profile/profile.component';
+import { FakeIDEComponent } from './component/fakeIDE/fakeIDE.component';
 import { PhotoContainerComponent } from './component/photo-container/photo-container.component';
 import { SideBarComponent } from './component/side-bar/side-bar.component';
-import { TestComponent } from './component/test/test.component';
+import { RootComponent } from './component/root/root.component';
 import { PhotoLensComponent } from './component/photo-lens/photo-lens.component';
 import { ServersComponent } from './component/servers/servers.component';
 import { NgModule } from '@angular/core';
@@ -12,13 +12,23 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'root',
+    pathMatch: 'full',
+  },
+  {
     path: 'servers',
     component: AppComponent,
   },
   {
-    path: 'test',
-    component: TestComponent,
+    path: 'root',
+    component: RootComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'fakeIDE',
+        pathMatch: 'full',
+      },
       {
         path: 'servers',
         component: ServersComponent,
@@ -32,8 +42,8 @@ const routes: Routes = [
         component: PhotoContainerComponent,
       },
       {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'fakeIDE',
+        component: FakeIDEComponent,
       },
       {
         path: 'onePageScroll',

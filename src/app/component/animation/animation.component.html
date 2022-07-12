@@ -5,9 +5,8 @@
       <button class="btn btn-primary" (click)="onAnimate()">Animate!</button>
       <button class="btn btn-primary" (click)="onShrink()">Shrink!</button>
       <hr>
-      <div [@divState]="state" style="width: 100px; height:100px"
-      (@divState.start) = "animationStarted($event)"
-      (@divState.done) = "animationEnded($event)"></div>
+      <div [@divState]="state" style="width: 100px; height:100px" (@divState.start)="animationStarted($event)"
+        (@divState.done)="animationEnded($event)"></div>
       <br>
       <div [@wildState]="wildState" style="width: 100px; height:100px"></div>
     </div>
@@ -16,22 +15,29 @@
   <div class="row">
     <div class="col-xs-12">
       <input type="text" #input>
-      <button class="btn btn-primary" (click)="onAdd(input.value)">Add Item!</button>
+      <button class="btn btn-primary" (click)="addItem(input.value)">Add Item!</button>
       <hr>
+      <div class="alert alert-danger" *ngIf="error">
+        <h1> An Error Occurred!</h1>
+        <p>{{error}}</p>
+
+      </div>
       <ul class="list-group">
-        <li [@stateOfList1] class="list-group-item" (click)="onDelete(i)" *ngFor="let item of list; let i = index">
-          {{ item }}
+        <li [@stateOfList1] class="list-group-item" (click)="deleteItem(item, i)"
+          *ngFor="let item of list; let i = index">
+          <p>id: {{ item.id }}</p>
+          <p>title: {{ item.title }}</p>
         </li>
       </ul>
     </div>
   </div>
-  <hr>
+  <!-- <hr>
   <div class="row">
     <div class="col-xs-12">
       <ul class="list-group">
-        <li [@stateOfList2] class="list-group-item" (click)="onDelete(item)" *ngFor="let item of list">
+        <li [@stateOfList2] class="list-group-item" (click)="deleteItem(item)" *ngFor="let item of list">
           {{ item }}
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
