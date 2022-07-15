@@ -32,6 +32,7 @@ body {
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
 .problems {
   display: inline-block;
   vertical-align: top;
@@ -63,7 +64,7 @@ body {
   position: absolute;
   float: right;
   width: 30vw;
-  height: 80vh;
+  height: 90vh;
 }
 
 .buttonGroup {
@@ -167,6 +168,7 @@ pre {
   &__p {
     // background-color: rebeccapurple;
     text-align: center;
+    font-weight: bold;
     width: 10vw;
   }
 

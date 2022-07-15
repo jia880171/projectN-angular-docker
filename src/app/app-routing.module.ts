@@ -9,6 +9,8 @@ import { ServersComponent } from './component/servers/servers.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './component/home/home.component';
+import { NotionComponent } from './component/notion/notion.component';
 
 const routes: Routes = [
   {
@@ -26,8 +28,16 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'fakeIDE',
+        redirectTo: 'home',
         pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+      {
+        path: 'notion',
+        component: NotionComponent,
       },
       {
         path: 'servers',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,9 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
+  isHoverOnSideBar = false;
+  isOnTheLeft = false;
   constructor(private router: Router) {}
+  body: HTMLElement | null | undefined;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.body = document.body;
+  }
 
   goToServer(): void {
     this.router.navigate(['test/servers']);
@@ -40,5 +45,28 @@ export class SideBarComponent implements OnInit {
     this.router.navigate(['test/animation']).then(() => {
       // window.location.reload();
     });
+  }
+  @HostListener('mousemove', ['$event'])
+  mouseMove($event: MouseEvent): void {
+
+    if (
+      $event.clientX <
+      // tslint:disable-next-line:no-non-null-assertion
+      0
+    ) {
+      console.log('======== on the left');
+      this.isOnTheLeft = true;
+    }
+  }
+  @HostListener('mouseenter')
+  public mouseenterListener(): void {
+    this.isHoverOnSideBar = true;
+  }
+
+  @HostListener('mouseleave')
+  public mouseleaveListener(): void {
+    if (!this.isOnTheLeft) {
+      this.isHoverOnSideBar = false;
+    }
   }
 }

@@ -205,6 +205,7 @@ export const Animations = {
         2000,
         keyframes([
           style({
+            zIndex: 1,
             opacity: 0,
             offset: 0,
           }),
@@ -231,6 +232,7 @@ export const Animations = {
         2000,
         keyframes([
           style({
+            zIndex: 2,
             opacity: 0,
             marginTop: '-70vh',
 

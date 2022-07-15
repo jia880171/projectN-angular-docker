@@ -59,11 +59,11 @@ export class FakeIDEComponent implements OnInit, AfterViewInit {
   loading = true;
   typingCodes = '';
   codebase = [
-    '\npublic class Example {',
-    '\n  public static void main(String[] args) {',
-    '\n      System.out.println("Hello World");',
-    '\n  }',
-    '\n}',
+    '\n I am trying to visulize the algorithm.',
+    '\n Click the problem from the left to start.',
+    '\n',
+    '\n',
+    '\n',
   ];
   rotationStatus: string = 'animationStart';
 
@@ -149,6 +149,10 @@ export class FakeIDEComponent implements OnInit, AfterViewInit {
       case PROBLEM_CODE.CONNECTED_GRAPH: {
         this.setSolutionPanelStatus(PROBLEM_CODE.CONNECTED_GRAPH);
         this.codebase = [
+          '\n Group the Zero and count the number of those groups.',
+          '\n',
+          '\n',
+          '\n',
           '\n backTracking(origianlPoint: Array<number>, startPoint: Array<number>): void{',
           '\n   for(row of rows){',
           '\n     for(column of columns{',
@@ -175,23 +179,15 @@ export class FakeIDEComponent implements OnInit, AfterViewInit {
       case PROBLEM_CODE.CHECH_HTML_DOM_ELEMENT: {
         this.setSolutionPanelStatus(PROBLEM_CODE.CHECH_HTML_DOM_ELEMENT);
         this.codebase = [
-          '\n check(origianlPoint: Array<number>, startPoint: Array<number>): void{',
-          '\n   for(row of rows){',
-          '\n     for(column of columns{',
-          '\n       backTracking([row, column])',
-          '\n     }',
-          '\n   }',
-          '\n }',
+          '\n Input a string of DOM elements, the algo. will check the correctness of the nested structure.',
+          '\n For example:',
+          '\n <div><p>abcd</p></div>',
+          '\n => valid',
           '\n',
-          '\n backTracking( stratPoint): void{',
-          '\n   if (untouched && 0){',
-          '\n     touch && set the origin',
-          '\n     backTrack(up)',
-          '\n     backTrack(down)',
-          '\n     backTrack(left)',
-          '\n     backTrack(right)',
-          '\n    }',
-          '\n }',
+          '\n <div><p>abcd<p></div>',
+          '\n => invalid',
+          '\n ',
+          '\n use stack!',
         ];
         clearInterval(this.runningInterval);
         this.printLines();

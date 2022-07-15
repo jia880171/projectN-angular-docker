@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MainPageComponent implements OnInit, AfterViewInit {
   isHoverOnSideBar = false;
+  isMouseLeave = false;
   hideState = 'display';
   pointTo: string | undefined;
   body: HTMLElement | null | undefined;
@@ -20,12 +21,17 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {}
 
+  @HostListener('mouseleave')
+  public mouseleaveListener(): void {
+    console.log('=========mouseLeave');
+    // this.hideState = 'hide';
+  }
+
   @HostListener('mousemove', ['$event'])
   mouseMove($event: MouseEvent): void {
     this.pointTo = document
       .elementFromPoint($event.clientX, $event.clientY)
       ?.tagName.toString();
-    // console.log($event.clientX, ' ', $event.clientY);
     if (
       $event.clientX <
       // tslint:disable-next-line:no-non-null-assertion

@@ -1,11 +1,12 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-photo-lens',
   templateUrl: './photo-lens.component.html',
   styleUrls: ['./photo-lens.component.scss'],
 })
-export class PhotoLensComponent implements OnInit, AfterViewInit {
+export class PhotoLensComponent implements OnInit, AfterViewInit, OnDestroy {
+  containerXBias = 0;
   centerX: number = 0;
   centerY: number = 0;
   cursorPositionX: number = 0;
@@ -17,9 +18,9 @@ export class PhotoLensComponent implements OnInit, AfterViewInit {
   scaleString: string = '';
   deltaY: number = 0;
 
-  RouteBodyPersentage = 0.85;
+  RouteBodyPersentage = 0.95;
 
-  container1: any;
+  container: any;
   coords: any;
   constructor(private snackBar: MatSnackBar) {
     this.snackBar.open('scroll the mouse wheel to zoom the photo!', 'OK', {
@@ -27,30 +28,38 @@ export class PhotoLensComponent implements OnInit, AfterViewInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.snackBar.dismiss();
+  }
+
   ngOnInit(): void {
-    this.container1 = document.getElementById('container1');
-    this.coords = this.container1.getBoundingClientRect();
+    this.container = document.getElementById('container');
+    this.coords = this.container.getBoundingClientRect();
     this.centerX = this.coords.width / this.RouteBodyPersentage / 2;
     this.centerY = this.coords.height / 2;
+    this.containerXBias = this.coords.width * 0.05;
   }
 
   ngAfterViewInit(): void {}
 
   @HostListener('mousemove', ['$event'])
   mouseMove($event: MouseEvent): void {
-    if (this.container1 !== null) {
-      this.cursorPositionX = $event.clientX - this.centerX;
-      this.cursorPositionY = $event.clientY - this.centerY;
+    if (this.container !== null) {
+      // this.cursorPositionX = $event.clientX - this.centerX;
+      // this.cursorPositionY = $event.clientY - this.centerY;
+      // const cofX = 0.9;
+      // const cofY = 1;
+      // const momvementX = this.cursorPositionX * cofX;
+      // const momvementY = this.cursorPositionY * cofY;
+      // this.newCenterPositionX = -momvementX + 'px';
+      // this.newCenterPositionY = -momvementY + 'px';
 
-      const cofX = 0.9;
-      // const cofX = 1;
-      // const cofY = 1 / 4;
-      const cofY = 1;
-      const momvementX = this.cursorPositionX * cofX;
-      const momvementY = this.cursorPositionY * cofY;
-
-      this.newCenterPositionX = -momvementX + 'px';
-      this.newCenterPositionY = -momvementY + 'px';
+      this.cursorPositionX = $event.clientX - this.containerXBias;
+      this.cursorPositionY = $event.clientY - 0;
+      this.newCenterPositionX =
+        -((this.cursorPositionX - this.centerX) * this.scaleNum) + 'px';
+      this.newCenterPositionY =
+        -((this.cursorPositionY - this.centerY) * this.scaleNum) + 'px';
     }
   }
 

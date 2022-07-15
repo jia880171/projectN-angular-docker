@@ -1,6 +1,8 @@
 import { Animations } from './anmation';
 import { HostListener } from '@angular/core';
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-one-page-sroll',
@@ -8,8 +10,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./one-page-sroll.component.scss'],
   animations: [Animations.pageScroll, Animations.panelSlide],
 })
-export class OnePageSrollComponent {
-  // hiddenUP hiddenDown showUp showDown
+export class OnePageSrollComponent implements OnDestroy {
   statusForSection: string[] = ['display', 'hiddenDown', 'hiddenDown'];
   lastTriggerTime: number = new Date().getTime();
   activeSection = 0;
@@ -20,9 +21,6 @@ export class OnePageSrollComponent {
   damping(deltaY: number): boolean {
     const scrollInterval = 600;
     const strength = 600;
-    // if (Math.abs(deltaY) > strength) {
-    //   return true;
-    // } else
     if (
       new Date().getTime() - this.lastTriggerTime > scrollInterval &&
       Math.abs(deltaY) > 5
@@ -33,7 +31,15 @@ export class OnePageSrollComponent {
     }
   }
 
-  constructor() {}
+  constructor(private snackBar: MatSnackBar) {
+    this.snackBar.open('scroll the mouse wheel to change the photo!', 'OK', {
+      panelClass: 'my-custom-snackbar',
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.snackBar.dismiss();
+  }
 
   @HostListener('mousemove', ['$event'])
   mouseMove($event: MouseEvent): void {

@@ -3,13 +3,13 @@
   z-index: 10;
   width: 10vw;
   height: 100vh;
-}
-.sideBarBody {
-  float: right;
-  // background-color: gainsboro;
-  padding-top: 30%;
   padding-right: 10%;
 }
+// .sideBarBody {
+//   float: right;
+//   padding-top: 30%;
+//   padding-right: 10%;
+// }
 .router-link-active {
   color: blue !important;
 }
@@ -24,4 +24,14 @@
 
 a {
   font-size: 25px;
+}
+
+.upperSection {
+  height: 20vh;
+}
+
+.icon {
+  float: right;
+  line-height: 20vh;
+  vertical-align: middle;
 }

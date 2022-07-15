@@ -25,6 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CvComponent } from './component/cv/cv.component';
+import { HomeComponent } from './component/home/home.component';
+import { NotionComponent } from './component/notion/notion.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { CvComponent } from './component/cv/cv.component';
     OnePageSrollComponent,
     AnimationComponent,
     CvComponent,
+    HomeComponent,
+    NotionComponent,
   ],
   imports: [
     BrowserModule,

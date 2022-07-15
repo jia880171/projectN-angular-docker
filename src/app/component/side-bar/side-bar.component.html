@@ -3,18 +3,34 @@
     <!-- <p>
       <a routerLink="photoContainer" routerLinkActive="router-link-active">photoContainer</a>
     </p> -->
-    <p>
-      <a routerLink="photoLens" routerLinkActive="router-link-active">PhotoLens</a>
-    </p>
-    <p>
-      <a routerLink="fakeIDE" routerLinkActive="router-link-active">Fake IDE</a>
-    </p>
-    <p>
-      <a routerLink="onePageScroll" routerLinkActive="router-link-active">1PScroll</a>
-    </p>
-    <!-- <p>
+
+    <div class="upperSection">
+      <div class="icon">
+        <img src="assets/icons/sidebar.png">
+      </div>
+    </div>
+
+    <div *ngIf="isHoverOnSideBar">
+      <p>
+        <a routerLink="home" routerLinkActive="router-link-active">Home</a>
+      </p>
+      <p>
+        <a routerLink="notion" routerLinkActive="router-link-active">Notions</a>
+      </p>
+      <p>
+        <a routerLink="photoLens" routerLinkActive="router-link-active">PhotoLens</a>
+      </p>
+      <p>
+        <a routerLink="fakeIDE" routerLinkActive="router-link-active">Fake IDE</a>
+      </p>
+      <p>
+        <a routerLink="onePageScroll" routerLinkActive="router-link-active">1PScroll</a>
+      </p>
+      <!-- <p>
       <a routerLink="animation" routerLinkActive="router-link-active">Animation</a>
     </p> -->
+    </div>
+
 
   </div>
 

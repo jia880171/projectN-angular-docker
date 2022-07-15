@@ -2,17 +2,18 @@
   <div class="background"></div>
 
   <div>
-    <div id="container1" class="floatBasic container1" [style.background-position-x]="newCenterPositionX"
+    <div id="container" class="floatBasic underPicrture" [style.background-position-x]="newCenterPositionX"
       [style.background-position-y]="newCenterPositionY" [style.transform]="scaleString">
     </div>
-    <div class="floatBasic container2"></div>
+    <div class="floatBasic coverPicture"></div>
     <div class="locationData">
       <h1>Home is far away</h1>
-      <p>CenterX: {{centerX}}, CenterY: {{centerY}}</p>
-      <p>(Relative to center) CursorX: {{cursorPositionX}}, CursorY: {{cursorPositionY}}</p>
-      <p>New CenterX: {{newCenterPositionX}}, new CenterY: {{newCenterPositionY}}</p>
+      <p>XBias: {{containerXBias}}</p>
 
-      <p>scale: {{scaleString}}</p>
+      <p>CenterX: {{centerX}}, CenterY: {{centerY}}</p>
+      <p>CursorX: {{cursorPositionX}}, CursorY: {{cursorPositionY}}</p>
+
+      <p>scale: {{scaleNum}}</p>
       <p>deltaY: {{deltaY}}</p>
 
 
