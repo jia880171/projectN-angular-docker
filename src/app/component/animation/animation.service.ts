@@ -9,7 +9,7 @@ import { PostModel } from './post.model';
 })
 export class AnimationService {
   constructor(private httpService: HttpService) {
-    // this.itemListener();
+    this.itemListener();
   }
   apiUrl = '/tasks';
   error = new Subject<string>();

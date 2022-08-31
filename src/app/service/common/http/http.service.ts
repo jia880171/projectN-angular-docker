@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class HttpService {
   baseUrl = 'http://localhost:3000';
   authToken =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpqNzg3ODc4IiwiaWF0IjoxNjQ5NTA1MDEzLCJleHAiOjE2NDk1MDg2MTN9.OfVR1yg_5QDdnRKzRR3S8geYsMzCmdBGXyywrqssFtQ';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpqNzg3ODc4IiwiaWF0IjoxNjU4MTk3NDc3LCJleHAiOjE2NTgyMDEwNzd9.9kLdKtg5eyjEiUbcOaRVMaCXsnXwjjxCRI-meTZ8-pc';
   constructor(private http: HttpClient) {}
 
   private createHttpHeaders(authToken: string): HttpHeaders {

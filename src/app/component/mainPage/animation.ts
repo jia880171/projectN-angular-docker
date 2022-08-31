@@ -23,7 +23,7 @@ export const Animation = {
     ),
     transition('*=>hide', [
       animate(
-        500,
+        700,
         keyframes([
           style({
             offset: 0,
@@ -41,7 +41,7 @@ export const Animation = {
     ]),
     transition('*=>display', [
       animate(
-        500,
+        700,
         keyframes([
           style({
             left: '-5vw',

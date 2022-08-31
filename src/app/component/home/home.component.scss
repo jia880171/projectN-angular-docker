@@ -1,25 +1,112 @@
+.body{
+  overflow: hidden;
+}
+.headLineBackground {
+  background-color: black;
+  // margin-left: 15vw;
+  right: 5vw;
+  width: 50vw;
+  height: 10vw;
 
-
-.headLine{
-  color: black;
-  font-weight: bold;
-  font-size: 15vw;
   position: absolute;
-  margin-left: 15vw;
-  bottom: 5vh;
-  z-index: 3;
+  top: 17vh;
+  z-index: 0;
 }
 
-.mediaPanel{
-  position: 'fixed';
-  float: right;
-  margin-right: 5vw;
-  min-width: 50vw;
+.headLine {
+  width: 50vw;
+  // background-color: black;
+  position: absolute;
+  // margin-left: 15vw;
+  right: 5vw;
+  top: 10vh;
+  z-index: 30;
+}
+
+.headLine .text {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 15vw;
+  line-height: 10vw;
+}
+
+.mediaPanel {
+  // background-color: red;
+  float: left;
+  margin-left: 5vw;
+  width: 30vw;
   height: 100vh;
 }
 
-.media{
-  max-width: 50vw;
-  min-height: 150vh;
-  // margin-top: 10vh;
+.fullHeightMediaPanel {
+  // background-color: red;
+  float: left;
+  margin-left: 5vw;
+  width: 20vw;
+  height: 100vh;
 }
+
+// 5 5 30 5 30 5 30
+
+
+.upperFixedWrap {
+  z-index: 1;
+  // margin-left: 2.5vw;
+  position: fixed;
+}
+
+.upperMediaPanel {
+  overflow: hidden;
+  position: relative;
+  background-color: yellow;
+  height: 60vh;
+  width: 30vw;
+}
+
+.bottomFixedWrap {
+  z-index: 1;
+  // margin-left: 2.5vw;
+  position: fixed;
+  bottom: 0;
+}
+
+.bottomRelativeMediaPanel {
+  position: relative;
+  overflow: hidden;
+  height: 60vh;
+  width: 50vw;
+}
+
+.bottomHorizontalRelativeMediaPanel {
+  position: relative;
+  overflow: hidden;
+  height: 30vh;
+  max-width: 50vw;
+}
+
+.fullHeightFixedWrap{
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  bottom: 0;
+}
+
+.fullHeightRelativeMediaPanel {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 20vw;
+}
+
+.fullHeightMedia {
+  height: 100vh;
+  // width: 30vw;
+}
+
+.media {
+  width: 30vw;
+}
+
+// .fullHeightMedia {
+//   height: 100vh;
+// }

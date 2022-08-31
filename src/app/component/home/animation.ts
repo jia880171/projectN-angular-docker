@@ -43,19 +43,19 @@ export const Animation = {
           }),
           style({
             position: 'fixed',
-            opacity: 0.8,
+            opacity: 1,
             top: '-25vh',
             offset: 0.25,
           }),
           style({
             position: 'fixed',
-            opacity: 0.6,
+            opacity: 1,
             top: '-50vh',
             offset: 0.5,
           }),
           style({
             position: 'fixed',
-            opacity: 0.3,
+            opacity: 0.5,
             top: '-75vh',
             offset: 0.75,
           }),
@@ -96,6 +96,85 @@ export const Animation = {
           style({
             position: 'fixed',
             top: '0vh',
+            offset: 1,
+          }),
+        ])
+      ),
+    ]),
+  ]),
+
+  autoWhiteOutSwitch: trigger('autoWhiteOutSwitch', [
+    state(
+      'display',
+      style({
+        zIndex: 6,
+        opacity: 3,
+      })
+    ),
+    state(
+      'nextToDisplay',
+      style({
+        zIndex: 5,
+        opacity: 1,
+      })
+    ),
+    state(
+      'hiddenDown',
+      style({
+        zIndex: 3,
+        opacity: 0,
+      })
+    ),
+    transition('hiddenDown=>display', [
+      animate(
+        2000,
+        keyframes([
+          style({
+            opacity: 1,
+            offset: 0,
+          }),
+          style({
+            opacity: 1,
+            offset: 0.25,
+          }),
+          style({
+            opacity: 1,
+            offset: 0.5,
+          }),
+          style({
+            opacity: 1,
+            offset: 0.75,
+          }),
+          style({
+            opacity: 1,
+            offset: 1,
+          }),
+        ])
+      ),
+    ]),
+
+    transition('display=>hiddenDown', [
+      animate(
+        2000,
+        keyframes([
+          style({
+            opacity: 1,
+            offset: 0,
+          }),
+          style({
+            opacity: 0.75,
+            offset: 0.25,
+          }),
+          style({
+            opacity: 0.5,
+            offset: 0.5,
+          }),
+          style({
+            opacity: 0.25,
+            offset: 0.75,
+          }),
+          style({
+            opacity: 0,
             offset: 1,
           }),
         ])

@@ -24,7 +24,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   @HostListener('mouseleave')
   public mouseleaveListener(): void {
     console.log('=========mouseLeave');
-    // this.hideState = 'hide';
+    this.hideState = 'hide';
   }
 
   @HostListener('mousemove', ['$event'])

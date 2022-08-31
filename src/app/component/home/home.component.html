@@ -1,9 +1,16 @@
-<div class="headLine">
-  walking
-</div>
-<div class="mediaPanel">
+<div class="body">
+  <div class="headLineBackground">
+  </div>
+  <div class="headLine">
+    <div class="text">
+      Tokyo
+    </div>
+  </div>
+
+
+  <!-- <div class="mediaPanel">
   <div [@autoSwitch]="statusForPictires[0]">
-    <video class="media" src="assets/home/train.mp4" autoplay="true" loop></video>
+    <video class="media" src="assets/home/train.mp4" controls mute autoplay="true" loop></video>
   </div>
   <div [@autoSwitch]="statusForPictires[1]">
     <img class="media" src="assets/home/1.jpeg">
@@ -11,3 +18,103 @@
   <div [@autoSwitch]="statusForPictires[2]">
     <img class="media" src="assets/home/3.jpeg">
   </div>
+  </div> -->
+
+  <div class="mediaPanel">
+
+    <div class="upperFixedWrap" [@autoWhiteOutSwitch]="statusForUpperPictires[0]">
+      <div class="upperMediaPanel">
+        <img class="media" src="assets/home/1.jpeg">
+      </div>
+    </div>
+
+    <div class="upperFixedWrap" [@autoWhiteOutSwitch]="statusForUpperPictires[1]">
+      <div class="upperMediaPanel">
+        <img class="media" src="assets/home/2.jpeg">
+      </div>
+    </div>
+
+    <div class="upperFixedWrap" [@autoWhiteOutSwitch]="statusForUpperPictires[2]">
+      <div class="upperMediaPanel">
+        <img class="media" src="assets/home/3.jpeg">
+      </div>
+    </div>
+
+    <div class="upperFixedWrap" [@autoWhiteOutSwitch]="statusForUpperPictires[3]">
+      <div class="upperMediaPanel">
+        <img class="media" src="assets/home/4.jpeg">
+      </div>
+    </div>
+
+
+    <!-- <div class="bottomMediaPanel"></div> -->
+    <div class="bottomFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[0]">
+      <div class="bottomHorizontalRelativeMediaPanel">
+        <img class="media" src="assets/home/h1.jpeg">
+      </div>
+    </div>
+
+    <div class="bottomFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[1]">
+      <div class="bottomHorizontalRelativeMediaPanel">
+        <img class="media" src="assets/home/h2.jpeg">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- second vertical media panel -->
+  <div class="mediaPanel">
+
+    <!-- <div class="upperMediaPanel">
+  </div> -->
+
+
+    <!-- <div class="bottomFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[0]">
+      <div class="bottomRelativeMediaPanel">
+        <img class="media" src="assets/home/1.jpeg">
+      </div>
+    </div>
+
+    <div class="bottomFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[1]">
+      <div class="bottomRelativeMediaPanel">
+        <video class="media" src="assets/home/train.mp4" controls mute autoplay="true" loop></video>
+      </div>
+    </div>
+
+    <div class="bottomFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[2]">
+      <div class="bottomRelativeMediaPanel">
+        <img class="media" src="assets/home/3.jpeg">
+      </div>
+    </div> -->
+
+  </div>
+
+  <!-- third vertical media panel -->
+  <div class="fullHeightMediaPanel">
+
+    <div class="fullHeightFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[0]">
+      <div class="fullHeightRelativeMediaPanel">
+        <img class="fullHeightMedia" src="assets/home/1.jpeg">
+      </div>
+    </div>
+
+    <div class="fullHeightFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[1]">
+      <div class="fullHeightRelativeMediaPanel">
+        <video class="fullHeightMedia" src="assets/home/train.mp4" controls mute autoplay="true" loop></video>
+      </div>
+    </div>
+
+    <div class="fullHeightFixedWrap" [@autoWhiteOutSwitch]="statusForBottomPictires[2]">
+      <div class="fullHeightRelativeMediaPanel">
+        <img class="fullHeightMedia" src="assets/home/3.jpeg">
+      </div>
+    </div>
+
+    <!-- <div class="fullFixedWrap">
+      <div class="fullRelativeMediaPanel">
+        <video class="fullHeightMedia" src="assets/home/train.mp4" controls mute autoplay="true" loop></video>
+      </div>
+    </div> -->
+
+  </div>
+</div>

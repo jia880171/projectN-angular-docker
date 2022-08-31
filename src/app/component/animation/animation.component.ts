@@ -132,14 +132,14 @@ export class AnimationComponent implements OnInit, OnDestroy {
   constructor(private animationService: AnimationService) {}
 
   ngOnInit(): void {
-    // this.errorSub = this.animationService.error.subscribe((errorMessage) => {
-    //   this.error = errorMessage;
-    // });
-    // this.itemSub = this.animationService.itemListenerSubject.subscribe(
-    //   (item) => {
-    //     this.list.push(new PostModel(item));
-    //   }
-    // );
+    this.errorSub = this.animationService.error.subscribe((errorMessage) => {
+      this.error = errorMessage;
+    });
+    this.itemSub = this.animationService.itemListenerSubject.subscribe(
+      (item) => {
+        this.list.push(new PostModel(item));
+      }
+    );
 
     this.getItems();
   }
